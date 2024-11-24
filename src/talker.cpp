@@ -11,15 +11,17 @@
 
 using namespace std::chrono_literals;
 
-constexpr double DEFAULT_FREQUENCY  = 2.0;
 constexpr size_t DEFAULT_COUNT      = 0;
 constexpr size_t DEFAULT_QUEUE_SIZE = 10;
+constexpr double DEFAULT_FREQUENCY  = 2.0;
 
 class MinimalPublisher : public rclcpp::Node {
 public:
 	MinimalPublisher()
-	: Node("minimal_publisher"), count_(DEFAULT_COUNT),
-	frequency_(DEFAULT_FREQUENCY), queue_size_(DEFAULT_QUEUE_SIZE) {
+	: Node("minimal_publisher"),
+	count_(DEFAULT_COUNT),
+	queue_size_(DEFAULT_QUEUE_SIZE),
+	frequency_(DEFAULT_FREQUENCY) {
 		update_publisher();
 		update_timer();
 	}
@@ -81,8 +83,8 @@ private:
 
 	rclcpp::TimerBase::SharedPtr timer_;
 	rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
-	size_t queue_size_;
 	size_t count_;
+	size_t queue_size_;
 	double frequency_;
 };
 
