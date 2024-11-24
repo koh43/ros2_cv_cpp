@@ -1,4 +1,4 @@
-from launch LaunchDescription
+from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
@@ -8,8 +8,9 @@ def generate_launch_description():
             executable='talker',
             name='my_talker',
             output='screen',
-            parameters=[{
-                ''
-            }]
+            arguments=[
+                '--freq', '5',
+                '--queue_size', '10'
+            ]
         )
     ])
