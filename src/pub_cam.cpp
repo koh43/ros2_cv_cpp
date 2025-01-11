@@ -10,7 +10,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/image.hpp"
 
-constexpr size_t DEFAULT_QUEUE_SIZE   = 10;
+constexpr size_t DEFAULT_QUEUE_SIZE = 10;
 
 class Camera_Publisher : public rclcpp::Node {
 public:
